@@ -13,6 +13,7 @@ import User from "../app/models/User";
 import configDatabase from "../config/database";
 import Products from "../app/models/Product";
 import Category from "../app/models/Category";
+import configServerURL from "../config/configServerURL";
 
 // Array contendo todos os modelos do banco de dados
 const models = [User, Products, Category];
@@ -39,7 +40,7 @@ class Database {
 
   mongo() {
     this.mongoConnection = mongoose.connect(
-      "mongodb://192.168.0.200:27017/codeburger"
+      `mongodb://${configServerURL}:27017/codeburger`
     );
   }
 }

@@ -1,5 +1,6 @@
 // Importa a classe Model do Sequelize para definir o modelo de dados
 import Sequelize, { Model } from "sequelize";
+import Serverurl from '../../config/configServerURL'
 
 // Define a classe Products, que representa o modelo de produtos
 class Category extends Model {
@@ -13,7 +14,7 @@ class Category extends Model {
                 url: {
                     type: Sequelize.VIRTUAL,
                     get() {
-                      return `http://192.168.0.200:3333/category-file/${this.path}`
+                      return `http://${Serverurl}:3333/category-file/${this.path}`
                     },
                   },
                  },
