@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-// eslint-disable-next-line import/no-extraneous-dependencies
 // Desativa a verificação de dependências externas para este arquivo (seja para ESLint ou outra ferramenta de linting)
 
 // Importa o Sequelize
@@ -13,7 +12,7 @@ import User from "../app/models/User";
 import configDatabase from "../config/database";
 import Products from "../app/models/Product";
 import Category from "../app/models/Category";
-import configServerURL from "../config/configServerURL";
+import { urlServer } from "../config/configServerURL";
 
 // Array contendo todos os modelos do banco de dados
 const models = [User, Products, Category];
@@ -38,9 +37,11 @@ class Database {
       );
   }
 
+  // Método para inicializar o MongoDB
   mongo() {
+    // Estabelece conexão com o MongoDB
     this.mongoConnection = mongoose.connect(
-      `mongodb://${configServerURL}:27017/codeburger`
+      `mongodb://${urlServer}:27017/codeburger`
     );
   }
 }

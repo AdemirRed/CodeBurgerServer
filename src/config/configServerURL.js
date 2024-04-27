@@ -1,8 +1,5 @@
-function urlserver (){
-    const server = '192.168.0.200'
-    // const server = '192.168.0.200'
-    return server
-}
+// Exporta o endereço do servidor diretamente
+export const urlServer = '10.147.20.134';
 
-
-export default urlserver()
+// Exporta a porta do servidor diretamente
+export const portServer = 3340; // Ou o valor desejado para a porta
